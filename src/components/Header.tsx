@@ -4,7 +4,13 @@ import { PageRoute } from '../types';
 import { Menu, X, Shield, Calendar, Phone, Sparkles } from 'lucide-react';
 
 export const Header: React.FC = () => {
-  const { activePage, setActivePage, openBookingWithService, isAdminLoggedIn } = useSalon();
+  const {
+    activePage,
+    setActivePage,
+    openBookingWithService,
+    isAdminLoggedIn,
+    averageRating,
+  } = useSalon();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks: { label: string; page: PageRoute }[] = [
@@ -32,18 +38,18 @@ export const Header: React.FC = () => {
       <div className="bg-[#2C2C2C] text-[#F9F6F2] text-xs py-2 px-4 sm:px-8 border-b border-[#3D3D3D]">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-[11px] sm:text-xs tracking-wider">
           <div className="flex items-center gap-2">
-            <span className="text-[#C9A27C]">★ 5.0 Rating</span>
+            <span className="text-[#C9A27C]">★ {averageRating.toFixed(1)} Rating</span>
             <span className="text-[#6B6B6B]">·</span>
-            <span className="hidden sm:inline text-stone-300">Beverly Hills Premier Wave & Balayage Sanctuary</span>
-            <span className="sm:hidden text-stone-300">Beverly Hills Salon</span>
+            <span className="hidden sm:inline text-stone-300">Karachi, Pakistan</span>
+            <span className="sm:hidden text-stone-300">Karachi</span>
           </div>
           <div className="flex items-center gap-4 text-stone-300">
             <a
-              href="tel:3105559283"
+              href="tel:+923199283227"
               className="flex items-center gap-1.5 hover:text-[#C9A27C] transition-colors"
             >
               <Phone className="w-3 h-3 text-[#C9A27C]" />
-              <span className="hidden md:inline">(310) 555-WAVE</span>
+              <span className="hidden md:inline">+92 319 9283227</span>
               <span className="md:hidden">Call</span>
             </a>
             <span className="hidden text-[#6B6B6B]">·</span>
@@ -71,9 +77,9 @@ export const Header: React.FC = () => {
             aria-label="Wave Bar Home"
           >
             <img
-              src="/images/Wave_Bar_284bd31f.png"
-              alt="Wave Bar High-End Hair & Beauty Salon"
-              className="h-12 max-w-[125px] sm:h-14 sm:max-w-none w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+              src="/images/wavebar-logo.jpg"
+              alt="Wave Bar"
+              className="h-12 max-w-[125px] sm:h-14 sm:max-w-none w-auto object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-102"
             />
           </button>
 

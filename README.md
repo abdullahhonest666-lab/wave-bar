@@ -1,10 +1,9 @@
-# Wave Bar — High-End Hair & Beauty Salon (MERN Architecture)
+# Wave Bar Salon — Karachi
 
-Wave Bar is a luxury digital platform for a high-end Beverly Hills hair and beauty salon. It features signature brush-wave styling, bespoke copper/rose-gold balayage, and private scalp spa rituals with an interactive multi-step appointment booking engine.
+Wave Bar Salon is a hair and beauty salon in Zamzama Commercial Area, Karachi. This website presents salon services and prices from the supplied menus, salon and client photos, Google Maps review excerpts, location details, and appointment options.
 
 ## Brand Identity & Aesthetic
-- **Primary Logo**: Wordmark with charcoal "wave" and rose-gold metallic gradient "bar" accompanied by multi-strand wave lines (`/public/assets/aistudio/Wave_Bar_284bd31f.png`).
-- **Favicon**: Circular rose-gold hairdryer icon with soft wave lines (`/public/assets/aistudio/WB-fav-icon_ca0a5dda.png`).
+- **Primary Logo**: Supplied Wave Bar brand image (`/public/images/wavebar-logo.jpg`).
 - **Palette**:
   - Primary: Rose Gold / Copper (`#B76E79` → `#C9A27C`)
   - Dark: Charcoal / Soft Black (`#2C2C2C`)
@@ -17,41 +16,37 @@ Wave Bar is a luxury digital platform for a high-end Beverly Hills hair and beau
 ## Key Features
 
 1. **Home Experience**:
-   - Hero section with high-resolution salon backdrop, rose-gold overlay, and smooth wave animation.
-   - Trust Bar highlighting **5.0 ★ rating (156+ verified reviews)**.
-   - 4-Pillar Salon Philosophy (Signature Brush-Wave, Copper Alchemy, Wash Sanctuary, Molecular Bond Defense).
-   - Curated ritual cards with direct booking action.
-   - Instagram feed preview linking directly to [`https://www.instagram.com/wavebar__`](https://www.instagram.com/wavebar__).
+   - Hero and gallery featuring the supplied salon and hair photos.
+   - Google Maps rating and review count, with short, attributed review excerpts.
+   - Service highlights and direct appointment actions.
 
 2. **Haute Hair Services**:
-   - Categorized filtering: *Cuts & Styling*, *Color & Balayage*, *Treatments & Hair Spa*, *Bridal & Glam*.
-   - Duration, price, step breakdowns, and FAQ accordion.
+   - Salon services and prices represented from the supplied hair, colour, and beauty menus.
+   - Links to view the original menu images.
 
 3. **About & Master Stylists**:
-   - Founder story: Elena Rostova.
-   - Stylist dossiers for Master Colorists and Trichology Leads.
-   - Sanctuary architecture details (Acoustic calming curves, steam mist wash loungers).
+   - Salon information and names referenced in public reviews.
 
 4. **Lookbook & Gallery**:
-   - Masonry transformation gallery with category tabs.
-   - Interactive Lightbox with high-resolution zoom, stylist credits, and "Request This Look" trigger.
+   - Supplied salon and client photos organized by category.
+   - Interactive lightbox and appointment action.
 
 5. **Multi-Step Booking Wizard**:
    - Step 1: Service Selection
-   - Step 2: Master Stylist Selection (or First Available)
-   - Step 3: Date & Time slot picker with real-time collision checking
+   - Step 2: Team-member selection (or first available)
+   - Step 3: Date and time selection with booking conflict checks
    - Step 4: Client contact information & special hair notes
-   - Step 5: Instant booking confirmation with confirmation code (`WB-XXXX`), celebratory confetti, simulated email confirmation receipt, and `.ics` calendar download.
+   - Step 5: Booking confirmation with confirmation code, email-style receipt, and `.ics` calendar download.
 
 6. **Simulated Email Confirmation Receipt**:
-   - Branded digital inbox receipt view with full breakdown, valet arrival directions, and printable voucher.
+   - Booking details and location in an email-style receipt.
 
-7. **5.0 ★ Testimonials & Reviews**:
-   - Category score breakdown (Artistry, Sanctuary, Wave Longevity).
-   - "Share Your Experience" modal form to publish verified reviews directly to the database.
+7. **Reviews**:
+   - Attributed Google Maps excerpts and website-submitted reviews.
+   - "Share Your Experience" form for website reviews.
 
-8. **Contact & Concierge**:
-   - Address, telephone, concierge email, opening hours.
+8. **Contact**:
+   - Salon address, telephone, Google Maps directions and map.
    - Interactive inquiry form.
    - Stylized Google Maps embed.
 

@@ -150,6 +150,19 @@ export const BookingModal: React.FC = () => {
   const downloadIcsCalendar = () => {
     if (!confirmedBooking) return;
     const dateParts = confirmedBooking.date.split('-');
+    const [time, meridiem] = confirmedBooking.time.split(' ');
+    const [hourText, minuteText] = time.split(':');
+    const hour = (Number(hourText) % 12) + (meridiem === 'PM' ? 12 : 0);
+    const start = new Date(Date.UTC(
+      Number(dateParts[0]),
+      Number(dateParts[1]) - 1,
+      Number(dateParts[2]),
+      hour,
+      Number(minuteText),
+    ));
+    const end = new Date(start.getTime() + confirmedBooking.durationMinutes * 60_000);
+    const formatIcsDateTime = (date: Date) =>
+      `${date.getUTCFullYear()}${String(date.getUTCMonth() + 1).padStart(2, '0')}${String(date.getUTCDate()).padStart(2, '0')}T${String(date.getUTCHours()).padStart(2, '0')}${String(date.getUTCMinutes()).padStart(2, '0')}00`;
     const icsContent = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
@@ -157,9 +170,9 @@ export const BookingModal: React.FC = () => {
       'BEGIN:VEVENT',
       `SUMMARY:Wave Bar Salon: ${confirmedBooking.serviceName}`,
       `DESCRIPTION:Appointment with ${confirmedBooking.stylistName} at Wave Bar Salon. Code: ${confirmedBooking.code}`,
-      'LOCATION:742 Ocean Promenade, Suite 400, Beverly Hills, CA 90210',
-      `DTSTART:${dateParts[0]}${dateParts[1]}${dateParts[2]}T150000Z`,
-      `DTEND:${dateParts[0]}${dateParts[1]}${dateParts[2]}T170000Z`,
+      'LOCATION:10th Commercial Ln, Zamzama Commercial Area, Defence V, Karachi 75500, Pakistan',
+      `DTSTART;TZID=Asia/Karachi:${formatIcsDateTime(start)}`,
+      `DTEND;TZID=Asia/Karachi:${formatIcsDateTime(end)}`,
       'STATUS:CONFIRMED',
       'END:VEVENT',
       'END:VCALENDAR',
@@ -268,15 +281,8 @@ export const BookingModal: React.FC = () => {
                           <p className="text-xs text-[#6B6B6B] leading-relaxed">
                             {service.description}
                           </p>
-                          <div className="flex items-center gap-3 text-xs text-[#6B6B6B] pt-1">
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-3.5 h-3.5 text-[#C9A27C]" />
-                              <span>{service.durationMinutes} mins</span>
-                            </span>
-                            <span>·</span>
-                            <span className="text-xs font-semibold text-[#2C2C2C]">
-                              ${service.price}
-                            </span>
+                          <div className="text-xs font-semibold text-[#2C2C2C] pt-1">
+                            Rs. {service.price.toLocaleString('en-PK')}
                           </div>
                         </div>
                         <div
@@ -301,10 +307,10 @@ export const BookingModal: React.FC = () => {
             <div className="space-y-5">
               <div>
                 <span className="text-xs uppercase tracking-wider text-[#6B6B6B] font-semibold">
-                  Select Master Stylist
+                  Select a Wave Bar Artist
                 </span>
                 <p className="text-xs text-[#6B6B6B] mt-1">
-                  Our artisans are dedicated masters of dimensional color and effortless wave architecture.
+                  Choose a team member or select the first available artist.
                 </p>
               </div>
 
@@ -323,10 +329,10 @@ export const BookingModal: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-sm text-[#2C2C2C]">
-                      First Available Master Stylist
+                      First Available Artist
                     </div>
                     <div className="text-xs text-[#6B6B6B]">
-                      Greatest scheduling flexibility with our top-rated team
+                      The Wave Bar team will assign an available artist
                     </div>
                   </div>
                 </div>
@@ -356,11 +362,12 @@ export const BookingModal: React.FC = () => {
                       }`}
                     >
                       <div className="relative mb-3">
-                        <img
-                          src={stylist.avatar}
-                          alt={stylist.name}
-                          className="w-16 h-16 rounded-full object-cover border-2 border-[#E8D5B7]"
-                        />
+                        <div
+                          aria-label={stylist.name}
+                          className="w-16 h-16 rounded-full bg-[#F9F6F2] border-2 border-[#E8D5B7] flex items-center justify-center text-xl font-serif text-[#B76E79]"
+                        >
+                          {stylist.name.slice(0, 1)}
+                        </div>
                         {isSelected && (
                           <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#B76E79] text-white flex items-center justify-center text-[10px]">
                             <Check className="w-3 h-3" />
@@ -372,9 +379,6 @@ export const BookingModal: React.FC = () => {
                       </div>
                       <div className="text-[11px] text-[#B76E79] font-medium mb-1">
                         {stylist.role}
-                      </div>
-                      <div className="text-[10px] text-[#6B6B6B] mt-auto">
-                        ★ {stylist.rating} ({stylist.reviewsCount} reviews)
                       </div>
                     </div>
                   );
@@ -391,7 +395,7 @@ export const BookingModal: React.FC = () => {
                   Select Date
                 </span>
                 <p className="text-xs text-[#6B6B6B] mt-1">
-                  Appointments are available Tuesday through Saturday.
+                  Choose a preferred date and time. Please confirm availability with Wave Bar.
                 </p>
               </div>
 
@@ -500,7 +504,7 @@ export const BookingModal: React.FC = () => {
                   <input
                     type="tel"
                     required
-                    placeholder="+1 (310) 555-0199"
+                    placeholder="+92 3XX XXXXXXX"
                     value={clientPhone}
                     onChange={(e) => setClientPhone(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-[#E8D5B7] bg-white text-sm text-[#2C2C2C] placeholder-[#6B6B6B]/60 focus:outline-none focus:ring-1 focus:ring-[#B76E79]"
@@ -525,11 +529,11 @@ export const BookingModal: React.FC = () => {
               <div className="mt-4 p-4 rounded-2xl bg-[#E8D5B7]/20 border border-[#E8D5B7]/50 space-y-2 text-xs">
                 <div className="flex justify-between text-[#2C2C2C] font-semibold">
                   <span>{currentService?.name}</span>
-                  <span>${currentService?.price}</span>
+                  <span>Rs. {currentService?.price.toLocaleString('en-PK')}</span>
                 </div>
                 <div className="flex justify-between text-[#6B6B6B]">
-                  <span>Stylist: {currentStylist?.name || 'First Available Artist'}</span>
-                  <span>{currentService?.durationMinutes} mins</span>
+                  <span>Artist: {currentStylist?.name || 'First Available Artist'}</span>
+                  <span>Wave Bar, Karachi</span>
                 </div>
                 <div className="flex justify-between text-[#6B6B6B]">
                   <span>Date & Time: {selectedDate} at {selectedTime}</span>
@@ -580,7 +584,7 @@ export const BookingModal: React.FC = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#6B6B6B]">Location</span>
-                  <span className="font-semibold text-[#2C2C2C]">742 Ocean Promenade, Beverly Hills</span>
+                  <span className="font-semibold text-[#2C2C2C]">Zamzama Commercial Area, Karachi</span>
                 </div>
               </div>
 

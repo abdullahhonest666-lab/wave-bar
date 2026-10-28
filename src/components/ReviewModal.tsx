@@ -26,7 +26,7 @@ export const ReviewModal: React.FC = () => {
       clientName,
       rating,
       serviceName: serviceName || (services[0]?.name ?? 'Signature Waves'),
-      stylistName: stylistName || (stylists[0]?.name ?? 'Elena Rostova'),
+      stylistName: stylistName || (stylists[0]?.name ?? 'Wave Bar Artist'),
       comment,
     });
     setSubmitting(false);

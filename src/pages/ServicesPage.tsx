@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import { useSalon } from '../context/SalonContext';
-import { Clock, Scissors, Sparkles, Check, ChevronDown, ChevronUp, Calendar } from 'lucide-react';
+import { ChevronDown, ChevronUp, Calendar } from 'lucide-react';
 
 export const ServicesPage: React.FC = () => {
   const { services, openBookingWithService } = useSalon();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  const categories = [
-    'All',
-    'Cuts & Styling',
-    'Color & Balayage',
-    'Treatments & Hair Spa',
-    'Bridal & Glam',
-  ];
+  const categories = ['All', ...new Set(services.map((service) => service.category))];
 
   const filteredServices =
     selectedCategory === 'All'
@@ -22,20 +16,16 @@ export const ServicesPage: React.FC = () => {
 
   const faqs = [
     {
-      q: 'How should I prepare for a balayage appointment?',
-      a: 'We recommend arriving with clean, dry hair free of heavy root touch-up sprays or mineral buildup. Feel free to bring inspiration photos of tones you admire.',
+      q: 'Which services are available?',
+      a: 'The Wave Bar menus list hair styling, haircuts, colour, treatments, dry massage, threading, eyeliner, nail services and Wave Tab gift cards.',
     },
     {
-      q: 'What is included in the Signature Wave blowout?',
-      a: 'Every blowout includes an aromatherapeutic scalp massage, tailored botanical shampoo, conditioning treatment mask, and precision thermal wave sculpting.',
+      q: 'How should I confirm a service or price?',
+      a: 'Prices are shown in Pakistani rupees. Some services have Standard and L’Oréal menu prices, and colour services marked “Starting at” may vary. Call Wave Bar to confirm details.',
     },
     {
-      q: 'Do you offer bridal party styling on location?',
-      a: 'Yes, our bridal concierge coordinates on-location teams for weddings and red carpet appearances throughout Southern California. Inquire via our contact page.',
-    },
-    {
-      q: 'What is your appointment cancellation policy?',
-      a: 'We kindly request at least 24 hours notice for standard appointments and 48 hours for balayage transformations to allow waitlisted clients the opportunity to book.',
+      q: 'Where is Wave Bar located?',
+      a: 'Wave Bar is in Zamzama Commercial Area, Defence V, Karachi. Use the Google Maps listing on the Contact page for directions and current opening hours.',
     },
   ];
 
@@ -45,13 +35,13 @@ export const ServicesPage: React.FC = () => {
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4">
         <span className="text-xs uppercase tracking-[0.25em] text-[#B76E79] font-semibold">
-          Menu of Artistry
+          Wave Bar Menu
         </span>
         <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#2C2C2C]">
-          Haute Hair Services
+          Services & Prices
         </h1>
         <p className="text-sm text-[#6B6B6B] leading-relaxed">
-          Each ritual includes an in-depth consultation, personalized botanical infusions, and our signature wave finishing.
+          Explore Wave Bar’s hair, colour, beauty and wellness services. Prices are listed in Pakistani rupees.
         </p>
       </div>
 
@@ -102,24 +92,15 @@ export const ServicesPage: React.FC = () => {
                 {service.description}
               </p>
 
-              <div className="flex items-center gap-4 text-xs text-[#6B6B6B] pt-2">
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#C9A27C]" />
-                  <span>{service.durationMinutes} Minutes</span>
-                </span>
-                <span>·</span>
-                <span className="flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-[#C9A27C]" />
-                  <span>Custom Finish</span>
-                </span>
-              </div>
             </div>
 
             <div className="pt-6 mt-6 border-t border-[#E8D5B7]/50 flex items-center justify-between">
               <div>
-                <span className="text-[10px] text-[#6B6B6B] block">Price</span>
+                <span className="text-[10px] text-[#6B6B6B] block">
+                  {service.badge === 'Starting at' ? 'Starting at' : 'Price'}
+                </span>
                 <span className="text-2xl font-serif font-bold text-[#2C2C2C]">
-                  ${service.price}
+                  Rs. {service.price.toLocaleString('en-PK')}
                 </span>
               </div>
               <button
@@ -134,34 +115,36 @@ export const ServicesPage: React.FC = () => {
         ))}
       </div>
 
-      {/* Salon Hospitality Amenities Banner */}
-      <div className="rounded-3xl bg-[#2C2C2C] p-8 sm:p-12 text-white">
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-8">
-          <span className="text-xs uppercase tracking-[0.25em] text-[#C9A27C] font-semibold">
-            The Wave Bar Standard
+      {/* Official menu scans */}
+      <div className="space-y-8">
+        <div className="text-center max-w-2xl mx-auto space-y-3">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#B76E79] font-semibold">
+            Official Menu Images
           </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-light">
-            Every Reservation Includes Our Signature Amenities
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#2C2C2C]">
+            View the Wave Bar Menus
           </h2>
+          <p className="text-xs text-[#6B6B6B]">
+            Select a menu to open the original image at full size.
+          </p>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-stone-300">
-          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-            <div className="font-semibold text-white">Personal Consultation</div>
-            <p className="text-stone-400">15-minute tailored analysis of scalp health, tone balance, and bone framing.</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-            <div className="font-semibold text-white">Steam Wash Sanctuary</div>
-            <p className="text-stone-400">Warm aromatic steam mist and reclining shiatsu wash loungers.</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-            <div className="font-semibold text-white">Concierge Refreshments</div>
-            <p className="text-stone-400">Complimentary artisanal matcha, Italian roast espresso, and sparkling champagne.</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-            <div className="font-semibold text-white">Thermal Wave Finishing</div>
-            <p className="text-stone-400">Weightless thermal wave protection and micro-fine hair fragrance gloss.</p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { title: 'Hair Services & Treatments', image: '/images/wavebar-hair-services-menu.jpg' },
+            { title: 'Haircut & Colour Menu', image: '/images/wavebar-hair-colour-menu.jpg' },
+            { title: 'Beauty, Nail Services & Gift Cards', image: '/images/wavebar-beauty-menu.jpg' },
+          ].map((menu) => (
+            <a
+              key={menu.image}
+              href={menu.image}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="p-5 rounded-3xl bg-white border border-[#E8D5B7]/60 luxury-card-shadow block"
+            >
+              <img src={menu.image} alt={menu.title} className="w-full h-auto rounded-xl" />
+              <h3 className="mt-4 text-sm font-semibold text-[#2C2C2C]">{menu.title}</h3>
+            </a>
+          ))}
         </div>
       </div>
 

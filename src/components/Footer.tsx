@@ -1,7 +1,10 @@
 import React from 'react';
 import { useSalon } from '../context/SalonContext';
 import { PageRoute } from '../types';
-import { Instagram, MapPin, Phone, Mail, Clock, ArrowUp } from 'lucide-react';
+import { MapPin, Phone, Clock, ArrowUp } from 'lucide-react';
+
+const googleMapsUrl =
+  'https://www.google.com/maps/place/Wave+Bar+Salon/@24.81859,67.0394615,17z/data=!4m17!1m10!3m9!1s0x3eb33dafbc434b11:0xfe3f511b3f425256!2sWave+Bar+Salon!8m2!3d24.8185886!4d67.0394686!10e5!14m1!1BCgIgAQ!16s%2Fg%2F11s63_zqgy!3m5!1s0x3eb33dafbc434b11:0xfe3f511b3f425256!8m2!3d24.8185886!4d67.0394686!16s%2Fg%2F11s63_zqgy';
 
 export const Footer: React.FC = () => {
   const { setActivePage, openBookingWithService } = useSalon();
@@ -24,26 +27,15 @@ export const Footer: React.FC = () => {
             <div>
               <div className="inline-block bg-[#FDFBF7] px-4 py-2 rounded-2xl border border-[#E8D5B7]/60 shadow-md">
                 <img
-                  src="/images/Wave_Bar_284bd31f.png"
-                  alt="Wave Bar High-End Hair & Beauty Salon"
-                  className="h-16 w-auto object-contain"
+                  src="/images/wavebar-logo.jpg"
+                  alt="Wave Bar"
+                  className="h-16 w-auto object-contain mix-blend-multiply"
                 />
               </div>
             </div>
             <p className="text-stone-400 text-sm leading-relaxed">
-              Dedicated to bespoke hair architecture, custom rose-gold balayage, and transcendent scalp wellness in an intimate Beverly Hills sanctuary.
+              Hair, colour and beauty services at Wave Bar in Karachi.
             </p>
-            <div className="pt-2">
-              <a
-                href="https://www.instagram.com/wavebar__"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#383838] hover:bg-[#484848] text-[#C9A27C] text-xs font-medium tracking-wide transition-colors"
-              >
-                <Instagram className="w-4 h-4" />
-                <span>@wavebar__</span>
-              </a>
-            </div>
           </div>
 
           {/* Col 2: Services Quick Links */}
@@ -57,7 +49,7 @@ export const Footer: React.FC = () => {
                   onClick={() => navigateTo('services')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Signature Silk Waves & Blowout
+                  Blow-dry & Styling
                 </button>
               </li>
               <li>
@@ -65,7 +57,7 @@ export const Footer: React.FC = () => {
                   onClick={() => navigateTo('services')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Rose-Gold & Copper Balayage
+                  Hair Colour & Balayage
                 </button>
               </li>
               <li>
@@ -73,7 +65,7 @@ export const Footer: React.FC = () => {
                   onClick={() => navigateTo('services')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Caviar Hair Spa Ritual
+                  Hair Treatments & Massage
                 </button>
               </li>
               <li>
@@ -81,7 +73,7 @@ export const Footer: React.FC = () => {
                   onClick={() => navigateTo('services')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Liquid Silk Keratin Therapy
+                  Haircuts & Trims
                 </button>
               </li>
               <li>
@@ -89,7 +81,7 @@ export const Footer: React.FC = () => {
                   onClick={() => navigateTo('services')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Bespoke Architectural Cuts
+                  Threading & Beauty Services
                 </button>
               </li>
               <li>
@@ -97,7 +89,7 @@ export const Footer: React.FC = () => {
                   onClick={() => navigateTo('services')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Bridal & Red Carpet Artistry
+                  Nail Services & Gift Cards
                 </button>
               </li>
             </ul>
@@ -106,28 +98,24 @@ export const Footer: React.FC = () => {
           {/* Col 3: Sanctuary Location & Hours */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold tracking-wider uppercase text-[#E8D5B7]">
-              Sanctuary & Hours
+              Find Wave Bar
             </h3>
             <div className="space-y-3 text-sm text-stone-400">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#C9A27C] shrink-0 mt-0.5" />
-                <span>742 Ocean Promenade, Suite 400<br />Beverly Hills, CA 90210</span>
+                <a href={googleMapsUrl} target="_blank" rel="noreferrer noopener" className="hover:text-white">
+                  10th Commercial Ln, Zamzama Commercial Area<br />Defence V, Karachi 75500, Pakistan
+                </a>
               </div>
-              <div className="flex items-center gap-3">
+              <a href="tel:+923199283227" className="flex items-center gap-3 hover:text-white">
                 <Phone className="w-4 h-4 text-[#C9A27C] shrink-0" />
-                <span>(310) 555-WAVE (9283)</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#C9A27C] shrink-0" />
-                <span>concierge@wavebarsalon.com</span>
-              </div>
+                <span>+92 319 9283227</span>
+              </a>
               <div className="flex items-start gap-3 pt-1">
                 <Clock className="w-4 h-4 text-[#C9A27C] shrink-0 mt-0.5" />
-                <div className="text-xs space-y-1 text-stone-300">
-                  <div>Tue – Fri: 9:00 AM – 7:00 PM</div>
-                  <div>Saturday: 9:00 AM – 6:00 PM</div>
-                  <div>Sun – Mon: Reserved for Private Events</div>
-                </div>
+                <a href={googleMapsUrl} target="_blank" rel="noreferrer noopener" className="text-xs text-stone-300 hover:text-white">
+                  View current hours on Google Maps
+                </a>
               </div>
             </div>
           </div>
@@ -138,7 +126,7 @@ export const Footer: React.FC = () => {
               Reserve Your Salon Ritual
             </h3>
             <p className="text-xs text-stone-300 leading-relaxed">
-              Experience personalized hair alchemy with our master artists. Appointments fill 2-3 weeks in advance.
+              Browse the service menu and request an appointment with the Wave Bar team.
             </p>
             <button
               onClick={() => openBookingWithService()}
@@ -147,9 +135,9 @@ export const Footer: React.FC = () => {
               Book Online Now
             </button>
             <div className="flex items-center justify-between text-[11px] text-stone-400 pt-2 border-t border-[#444444]">
-              <span>Complimentary Valet</span>
+              <span>Karachi</span>
               <span>·</span>
-              <span>Organic Coffee & Bubbles</span>
+              <span>Pakistan</span>
             </div>
           </div>
         </div>

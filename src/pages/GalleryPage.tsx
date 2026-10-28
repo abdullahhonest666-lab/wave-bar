@@ -8,13 +8,7 @@ export const GalleryPage: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>('All');
   const [activeLightboxItem, setActiveLightboxItem] = useState<GalleryItem | null>(null);
 
-  const filters = [
-    'All',
-    'Color & Balayage',
-    'Signature Waves',
-    'Salon Experience',
-    'Cuts & Transformations',
-  ];
+  const filters = ['All', ...new Set(gallery.map((item) => item.category))];
 
   const filteredGallery =
     selectedFilter === 'All'
@@ -27,13 +21,13 @@ export const GalleryPage: React.FC = () => {
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4">
         <span className="text-xs uppercase tracking-[0.25em] text-[#B76E79] font-semibold">
-          Salon Lookbook
+          Wave Bar Gallery
         </span>
         <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#2C2C2C]">
-          The Gallery of Transformations
+          Salon & Client Photos
         </h1>
         <p className="text-sm text-[#6B6B6B] leading-relaxed">
-          Explore real client hair architecture, copper glaze formulas, and effortless wave styling created inside our sanctuary.
+          Photos of Wave Bar’s salon and client styling, shared with the salon’s brand materials.
         </p>
       </div>
 
@@ -86,7 +80,7 @@ export const GalleryPage: React.FC = () => {
                 {item.description}
               </p>
               <div className="text-[11px] text-[#C9A27C] pt-1">
-                Artistry by {item.stylist}
+                Photo: {item.stylist}
               </div>
             </div>
           </div>
@@ -129,10 +123,10 @@ export const GalleryPage: React.FC = () => {
                   {activeLightboxItem.description}
                 </p>
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1.5 text-xs">
-                  <div className="text-stone-400">Created by:</div>
+                  <div className="text-stone-400">Photo from:</div>
                   <div className="font-semibold text-[#E8D5B7]">{activeLightboxItem.stylist}</div>
                   <div className="text-stone-400 text-[11px] pt-1">
-                    Custom technique recorded at Wave Bar Beverly Hills
+                    Wave Bar Salon, Karachi
                   </div>
                 </div>
               </div>

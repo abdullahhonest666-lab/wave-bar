@@ -1,6 +1,9 @@
 import React from 'react';
 import { useSalon } from '../context/SalonContext';
-import { Star, ShieldCheck, MessageSquarePlus, Sparkles } from 'lucide-react';
+import { Star, ExternalLink, MessageSquarePlus, Sparkles } from 'lucide-react';
+
+const googleMapsUrl =
+  'https://www.google.com/maps/place/Wave+Bar+Salon/@24.81859,67.0394615,17z/data=!4m17!1m10!3m9!1s0x3eb33dafbc434b11:0xfe3f511b3f425256!2sWave+Bar+Salon!8m2!3d24.8185886!4d67.0394686!10e5!14m1!1BCgIgAQ!16s%2Fg%2F11s63_zqgy!3m5!1s0x3eb33dafbc434b11:0xfe3f511b3f425256!8m2!3d24.8185886!4d67.0394686!16s%2Fg%2F11s63_zqgy';
 
 export const ReviewsPage: React.FC = () => {
   const { reviews, setIsReviewModalOpen, averageRating, totalReviewsCount } = useSalon();
@@ -11,13 +14,13 @@ export const ReviewsPage: React.FC = () => {
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4">
         <span className="text-xs uppercase tracking-[0.25em] text-[#B76E79] font-semibold">
-          Client Testimonials
+          Google Maps & Client Reviews
         </span>
         <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#2C2C2C]">
-          Pure 5.0 ★ Excellence
+          {averageRating.toFixed(1)} ★ on Google Maps
         </h1>
         <p className="text-sm text-[#6B6B6B] leading-relaxed">
-          Read genuine reflections from clients who have trusted our sanctuary with their hair health, balayage, and styling.
+          Read short excerpts from Wave Bar’s public Google Maps reviews, or open the listing to see the originals.
         </p>
       </div>
 
@@ -35,25 +38,25 @@ export const ReviewsPage: React.FC = () => {
               {averageRating.toFixed(1)}
             </div>
             <div className="text-xs text-stone-400">
-              Overall score based on {totalReviewsCount} verified client reservations
+              {totalReviewsCount} public Google Maps reviews
             </div>
           </div>
 
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-stone-300">
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1 text-center sm:text-left">
-              <span className="text-[#C9A27C] font-semibold text-lg font-serif">5.0 ★</span>
-              <div className="font-semibold text-white">Hair Artistry & Color</div>
-              <p className="text-stone-400 text-[11px]">Dimensional accuracy, low damage, flawless gloss</p>
+              <span className="text-[#C9A27C] font-semibold text-lg font-serif">Hair</span>
+              <div className="font-semibold text-white">Blow-dry & Styling</div>
+              <p className="text-stone-400 text-[11px]">Guests mention beachy waves and blow-dry styling.</p>
             </div>
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1 text-center sm:text-left">
-              <span className="text-[#C9A27C] font-semibold text-lg font-serif">5.0 ★</span>
-              <div className="font-semibold text-white">Sanctuary Comfort</div>
-              <p className="text-stone-400 text-[11px]">Private steam wash lounge, zero rushed atmosphere</p>
+              <span className="text-[#C9A27C] font-semibold text-lg font-serif">Team</span>
+              <div className="font-semibold text-white">Friendly Service</div>
+              <p className="text-stone-400 text-[11px]">Reviewers call out the welcoming, helpful staff.</p>
             </div>
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1 text-center sm:text-left">
-              <span className="text-[#C9A27C] font-semibold text-lg font-serif">5.0 ★</span>
-              <div className="font-semibold text-white">Wave Longevity</div>
-              <p className="text-stone-400 text-[11px]">Signature styling holding 3–4 days effortlessly</p>
+              <span className="text-[#C9A27C] font-semibold text-lg font-serif">Beauty</span>
+              <div className="font-semibold text-white">Treatments & Care</div>
+              <p className="text-stone-400 text-[11px]">Guests mention scalp treatments and pedicures.</p>
             </div>
           </div>
 
@@ -61,9 +64,17 @@ export const ReviewsPage: React.FC = () => {
 
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-xs text-stone-400">
-            <ShieldCheck className="w-4 h-4 text-[#C9A27C]" />
-            <span>All reviews verified through Wave Bar booking appointments</span>
+            <ExternalLink className="w-4 h-4 text-[#C9A27C]" />
+            <span>Google review excerpts are attributed to their public reviewers.</span>
           </div>
+          <a
+            href={googleMapsUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-xs text-[#E8D5B7] hover:text-white underline underline-offset-4"
+          >
+            View the original reviews on Google Maps
+          </a>
           <button
             onClick={() => setIsReviewModalOpen(true)}
             className="px-6 py-2.5 rounded-full bg-rose-gold-gradient hover:bg-rose-gold-gradient-hover text-white text-xs font-semibold uppercase tracking-wider transition-all shadow-md flex items-center gap-2 cursor-pointer"
@@ -88,7 +99,9 @@ export const ReviewsPage: React.FC = () => {
                     <Star key={i} className="w-4 h-4 fill-amber-400" />
                   ))}
                 </div>
-                <span className="text-[11px] text-[#6B6B6B]">{rev.date}</span>
+                <span className="text-[11px] text-[#6B6B6B]">
+                  {rev.source === 'Google Maps' ? 'Google Maps · ' : ''}{rev.date}
+                </span>
               </div>
 
               <p className="text-xs sm:text-sm text-[#2C2C2C] leading-relaxed italic">
@@ -103,6 +116,9 @@ export const ReviewsPage: React.FC = () => {
                 </div>
                 <div className="text-[11px] text-[#B76E79]">
                   {rev.serviceName}
+                </div>
+                <div className="text-[10px] text-[#6B6B6B]">
+                  {rev.source ?? 'Website'}
                 </div>
               </div>
               <div className="text-right">
@@ -120,17 +136,19 @@ export const ReviewsPage: React.FC = () => {
       <div className="p-8 rounded-3xl bg-[#F9F6F2] border border-[#E8D5B7] text-center space-y-4">
         <Sparkles className="w-6 h-6 text-[#B76E79] mx-auto" />
         <h3 className="text-xl font-serif font-bold text-[#2C2C2C]">
-          Have you experienced Wave Bar recently?
+          Visited Wave Bar?
         </h3>
         <p className="text-xs text-[#6B6B6B] max-w-md mx-auto">
-          We warmly invite our guests to share their transformation stories and salon memories.
+          Share your experience with Wave Bar on Google Maps.
         </p>
-        <button
-          onClick={() => setIsReviewModalOpen(true)}
+        <a
+          href={googleMapsUrl}
+          target="_blank"
+          rel="noreferrer noopener"
           className="px-6 py-2.5 rounded-full border border-[#B76E79] text-[#B76E79] hover:bg-[#B76E79] hover:text-white transition-colors text-xs font-semibold uppercase tracking-wider cursor-pointer"
         >
-          Submit Your Reflections
-        </button>
+          Review on Google Maps
+        </a>
       </div>
 
     </div>

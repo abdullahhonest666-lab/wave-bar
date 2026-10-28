@@ -82,8 +82,8 @@ export const SalonProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [reviews, setReviews] = useState<ReviewItem[]>([]);
   const [gallery, setGallery] = useState<GalleryItem[]>([]);
   const [appointments, setAppointments] = useState<AppointmentItem[]>([]);
-  const [averageRating, setAverageRating] = useState<number>(5.0);
-  const [totalReviewsCount, setTotalReviewsCount] = useState<number>(156);
+  const [averageRating, setAverageRating] = useState<number>(4.9);
+  const [totalReviewsCount, setTotalReviewsCount] = useState<number>(161);
 
   const [activePage, setActivePage] = useState<PageRoute>('home');
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -222,7 +222,6 @@ export const SalonProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         return { success: false, error: data.error || 'Failed to submit review' };
       }
       setReviews((prev) => [data.review, ...prev]);
-      setTotalReviewsCount((prev) => prev + 1);
       addToast('Thank you for your review!', 'success');
       return { success: true, review: data.review };
     } catch (err: any) {
@@ -247,7 +246,7 @@ export const SalonProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       if (!res.ok) {
         return { success: false, error: data.error || 'Failed to send message' };
       }
-      addToast('Concierge inquiry received. We will respond shortly.', 'success');
+      addToast('Your inquiry has been received. We will respond shortly.', 'success');
       return { success: true, message: data.message };
     } catch (err: any) {
       return { success: false, error: err.message || 'Network error' };

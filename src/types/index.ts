@@ -48,6 +48,7 @@ export interface ReviewItem {
   comment: string;
   date: string;
   verified: boolean;
+  source?: 'Google Maps' | 'Website';
 }
 
 export interface GalleryItem {

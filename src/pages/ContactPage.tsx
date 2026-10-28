@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useSalon } from '../context/SalonContext';
-import { MapPin, Phone, Mail, Clock, Instagram, Send, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Clock, Send, CheckCircle2 } from 'lucide-react';
+
+const googleMapsUrl =
+  'https://www.google.com/maps/place/Wave+Bar+Salon/@24.81859,67.0394615,17z/data=!4m17!1m10!3m9!1s0x3eb33dafbc434b11:0xfe3f511b3f425256!2sWave+Bar+Salon!8m2!3d24.8185886!4d67.0394686!10e5!14m1!1BCgIgAQ!16s%2Fg%2F11s63_zqgy!3m5!1s0x3eb33dafbc434b11:0xfe3f511b3f425256!8m2!3d24.8185886!4d67.0394686!16s%2Fg%2F11s63_zqgy';
 
 export const ContactPage: React.FC = () => {
   const { submitContact } = useSalon();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [serviceInterest, setServiceInterest] = useState('Signature Waves & Blowout');
+  const [serviceInterest, setServiceInterest] = useState('Hair Services');
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -35,13 +38,13 @@ export const ContactPage: React.FC = () => {
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4">
         <span className="text-xs uppercase tracking-[0.25em] text-[#B76E79] font-semibold">
-          Concierge & Inquiries
+          Contact & Location
         </span>
         <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#2C2C2C]">
-          Connect with Our Sanctuary
+          Visit Wave Bar Salon
         </h1>
         <p className="text-sm text-[#6B6B6B] leading-relaxed">
-          Whether planning a bridal experience, inquiring about bespoke coloring, or requesting private event bookings, our concierge is at your service.
+          Find Wave Bar in Karachi, call the salon or send a service inquiry.
         </p>
       </div>
 
@@ -50,34 +53,26 @@ export const ContactPage: React.FC = () => {
         <div className="lg:col-span-5 space-y-8">
           <div className="p-8 rounded-3xl bg-white border border-[#E8D5B7]/60 luxury-card-shadow space-y-6">
             <h2 className="text-xl font-serif font-bold text-[#2C2C2C]">
-              Sanctuary Details
+              Wave Bar Details
             </h2>
 
             <div className="space-y-4 text-xs text-[#2C2C2C]">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#B76E79] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold block text-sm">Beverly Hills Location</span>
-                  <span className="text-[#6B6B6B]">742 Ocean Promenade, Suite 400<br />Beverly Hills, CA 90210</span>
+                  <span className="font-semibold block text-sm">Karachi Location</span>
+                  <a href={googleMapsUrl} target="_blank" rel="noreferrer noopener" className="text-[#6B6B6B] hover:text-[#B76E79]">
+                    10th Commercial Ln, Zamzama Commercial Area<br />Defence V, Karachi 75500, Pakistan
+                  </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-[#B76E79] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold block text-sm">Direct Line & WhatsApp</span>
-                  <a href="tel:3105559283" className="text-[#6B6B6B] hover:text-[#B76E79]">
-                    (310) 555-WAVE (9283)
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#B76E79] shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-semibold block text-sm">Concierge Email</span>
-                  <a href="mailto:concierge@wavebarsalon.com" className="text-[#6B6B6B] hover:text-[#B76E79]">
-                    concierge@wavebarsalon.com
+                  <span className="font-semibold block text-sm">Phone</span>
+                  <a href="tel:+923199283227" className="text-[#6B6B6B] hover:text-[#B76E79]">
+                    +92 319 9283227
                   </a>
                 </div>
               </div>
@@ -86,33 +81,31 @@ export const ContactPage: React.FC = () => {
                 <Clock className="w-4 h-4 text-[#B76E79] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold block text-sm">Opening Hours</span>
-                  <div className="text-[#6B6B6B] space-y-1 mt-1">
-                    <div>Tuesday – Friday: 9:00 AM – 7:00 PM</div>
-                    <div>Saturday: 9:00 AM – 6:00 PM</div>
-                    <div>Sunday – Monday: Private VIP & Bridal Buyouts</div>
-                  </div>
+                  <a href={googleMapsUrl} target="_blank" rel="noreferrer noopener" className="text-[#6B6B6B] hover:text-[#B76E79]">
+                    View current hours on Google Maps
+                  </a>
                 </div>
               </div>
 
               <div className="pt-2 border-t border-[#E8D5B7]/40">
                 <a
-                  href="https://www.instagram.com/wavebar__"
+                  href={googleMapsUrl}
                   target="_blank"
                   rel="noreferrer noopener"
                   className="inline-flex items-center gap-2 text-xs font-semibold text-[#B76E79] hover:text-[#2C2C2C] transition-colors"
                 >
-                  <Instagram className="w-4 h-4" />
-                  <span>Instagram: @wavebar__</span>
+                  <MapPin className="w-4 h-4" />
+                  <span>Open Wave Bar on Google Maps</span>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Valet & Parking Note */}
+          {/* Directions Note */}
           <div className="p-6 rounded-2xl bg-[#E8D5B7]/25 border border-[#E8D5B7]/60 text-xs text-[#2C2C2C] space-y-2">
-            <span className="font-semibold block">Complimentary Valet Parking</span>
+            <span className="font-semibold block">Find the Salon</span>
             <p className="text-[#6B6B6B] leading-relaxed">
-              Arrive at the circular driveway at 742 Ocean Promenade. Inform the attendant you are visiting Wave Bar for priority complimentary parking.
+              Wave Bar is in Zamzama Commercial Area, Defence V, Karachi. Use the map for directions.
             </p>
           </div>
         </div>
@@ -127,7 +120,7 @@ export const ContactPage: React.FC = () => {
                   Message Received
                 </h3>
                 <p className="text-xs text-[#6B6B6B] max-w-md mx-auto">
-                  Thank you for reaching out to Wave Bar. Our salon concierge will review your inquiry and connect with you shortly.
+                  Thank you for contacting Wave Bar. Your message has been received.
                 </p>
                 <button
                   onClick={() => {
@@ -143,10 +136,10 @@ export const ContactPage: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <h2 className="text-xl font-serif font-bold text-[#2C2C2C]">
-                    Send a Concierge Inquiry
+                    Send an Inquiry
                   </h2>
                   <p className="text-xs text-[#6B6B6B] mt-1">
-                    Inquire about custom appointments, bridal packages, or private salon events.
+                    Ask about services, menu prices or appointment availability.
                   </p>
                 </div>
 
@@ -158,7 +151,7 @@ export const ContactPage: React.FC = () => {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Victoria Sterling"
+                      placeholder="Your name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl border border-[#E8D5B7] bg-white text-sm text-[#2C2C2C] focus:outline-none focus:ring-1 focus:ring-[#B76E79]"
@@ -172,7 +165,7 @@ export const ContactPage: React.FC = () => {
                     <input
                       type="email"
                       required
-                      placeholder="victoria@example.com"
+                      placeholder="you@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl border border-[#E8D5B7] bg-white text-sm text-[#2C2C2C] focus:outline-none focus:ring-1 focus:ring-[#B76E79]"
@@ -185,7 +178,7 @@ export const ContactPage: React.FC = () => {
                     </label>
                     <input
                       type="tel"
-                      placeholder="+1 (310) 555-0144"
+                      placeholder="+92 3XX XXXXXXX"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl border border-[#E8D5B7] bg-white text-sm text-[#2C2C2C] focus:outline-none focus:ring-1 focus:ring-[#B76E79]"
@@ -201,11 +194,12 @@ export const ContactPage: React.FC = () => {
                       onChange={(e) => setServiceInterest(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl border border-[#E8D5B7] bg-white text-xs text-[#2C2C2C] focus:outline-none focus:ring-1 focus:ring-[#B76E79]"
                     >
-                      <option value="Signature Waves & Blowout">Signature Waves & Blowout</option>
-                      <option value="Rose-Gold & Copper Dimensional Balayage">Rose-Gold & Copper Dimensional Balayage</option>
-                      <option value="Caviar Scalp Spa Ritual">Caviar Scalp Spa Ritual</option>
-                      <option value="Bridal & Event Hair Glamour">Bridal & Event Hair Glamour</option>
-                      <option value="Private Salon Buyout / VIP Event">Private Salon Buyout / VIP Event</option>
+                      <option value="Hair Services">Hair Services</option>
+                      <option value="Haircuts">Haircuts</option>
+                      <option value="Hair Colour">Hair Colour</option>
+                      <option value="Hair Treatments">Hair Treatments</option>
+                      <option value="Massage">Massage</option>
+                      <option value="Beauty Services">Beauty Services</option>
                       <option value="General Question">General Question</option>
                     </select>
                   </div>
@@ -217,7 +211,7 @@ export const ContactPage: React.FC = () => {
                     <textarea
                       rows={4}
                       required
-                      placeholder="Please share any preferred dates, bridal party details, or questions..."
+                      placeholder="Tell us which service you’re interested in or ask a question..."
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl border border-[#E8D5B7] bg-white text-sm text-[#2C2C2C] focus:outline-none focus:ring-1 focus:ring-[#B76E79]"
@@ -244,15 +238,17 @@ export const ContactPage: React.FC = () => {
       {/* Styled Google Maps Embed Area */}
       <div className="rounded-3xl overflow-hidden border border-[#E8D5B7] shadow-xl relative aspect-[16/7] bg-stone-100">
         <iframe
-          title="Wave Bar Beverly Hills Location"
-          src="https://maps.google.com/maps?q=Beverly%20Hills,%20California&t=&z=14&ie=UTF8&iwloc=&output=embed"
+          title="Wave Bar Salon in Karachi"
+          src="https://maps.google.com/maps?q=24.8185886%2C67.0394686&t=&z=16&ie=UTF8&iwloc=&output=embed"
           className="w-full h-full border-0 filter grayscale contrast-125 opacity-90"
           loading="lazy"
         />
         <div className="absolute bottom-6 left-6 bg-[#2C2C2C] text-white p-4 rounded-2xl shadow-xl border border-white/10 text-xs space-y-1 max-w-xs">
           <div className="font-serif font-bold text-sm text-[#E8D5B7]">Wave Bar Salon</div>
-          <p className="text-stone-300">742 Ocean Promenade, Suite 400, Beverly Hills</p>
-          <p className="text-[10px] text-stone-400">Valet attendant at front promenade entry</p>
+          <p className="text-stone-300">Zamzama Commercial Area, Defence V, Karachi</p>
+          <a href={googleMapsUrl} target="_blank" rel="noreferrer noopener" className="text-[10px] text-stone-400 underline">
+            Get directions
+          </a>
         </div>
       </div>
 

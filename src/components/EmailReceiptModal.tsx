@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSalon } from '../context/SalonContext';
-import { X, CheckCircle, MapPin, Calendar, Clock, Scissors, Sparkles, Mail, Printer } from 'lucide-react';
+import { X, CheckCircle, MapPin, Calendar, Scissors, Sparkles, Mail, Printer } from 'lucide-react';
 
 export const EmailReceiptModal: React.FC = () => {
   const { activeReceiptAppointment, setActiveReceiptAppointment } = useSalon();
@@ -21,7 +21,7 @@ export const EmailReceiptModal: React.FC = () => {
         <div className="bg-stone-100 px-6 py-3 border-b border-stone-200 flex items-center justify-between text-xs text-stone-500">
           <div className="flex items-center gap-2">
             <Mail className="w-3.5 h-3.5 text-[#B76E79]" />
-            <span>Simulated Client Email Inbox: concierge@wavebarsalon.com</span>
+            <span>Wave Bar Appointment Details</span>
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -46,18 +46,18 @@ export const EmailReceiptModal: React.FC = () => {
           {/* Email Header */}
           <div className="text-center space-y-3 pb-6 border-b border-stone-100">
             <img
-              src="/images/Wave_Bar_284bd31f.png"
+              src="/images/wavebar-logo.jpg"
               alt="Wave Bar"
-              className="h-10 mx-auto object-contain"
+              className="h-10 mx-auto object-contain mix-blend-multiply"
             />
             <p className="text-xs uppercase tracking-widest text-[#B76E79] font-medium">
               Reservation Confirmation · #{apt.code}
             </p>
             <h2 className="text-2xl font-serif font-bold text-stone-900">
-              Your Hair Sanctuary Awaits
+              Your Appointment Details
             </h2>
             <p className="text-xs text-stone-500 max-w-md mx-auto">
-              Dear {apt.clientName}, thank you for choosing Wave Bar. We have prepared our sanctuary for your bespoke service.
+              Dear {apt.clientName}, thank you for contacting Wave Bar.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ export const EmailReceiptModal: React.FC = () => {
             <div className="flex items-center justify-between border-b border-[#E8D5B7]/40 pb-3">
               <div>
                 <span className="text-[11px] uppercase tracking-wider text-stone-400 font-semibold">
-                  Service Ritual
+                  Service
                 </span>
                 <div className="text-base font-semibold text-stone-900 mt-0.5">
                   {apt.serviceName}
@@ -74,27 +74,20 @@ export const EmailReceiptModal: React.FC = () => {
               </div>
               <div className="text-right">
                 <span className="text-[11px] uppercase tracking-wider text-stone-400 font-semibold">
-                  Investment
+                  Price
                 </span>
                 <div className="text-base font-semibold text-[#B76E79] mt-0.5">
-                  ${apt.price}
+                  Rs. {apt.price.toLocaleString('en-PK')}
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4 text-xs">
               <div>
-                <span className="text-stone-400 block mb-1">Master Stylist</span>
+                <span className="text-stone-400 block mb-1">Artist</span>
                 <span className="font-semibold text-stone-800 flex items-center gap-1.5">
                   <Scissors className="w-3.5 h-3.5 text-[#C9A27C]" />
                   {apt.stylistName}
-                </span>
-              </div>
-              <div>
-                <span className="text-stone-400 block mb-1">Estimated Duration</span>
-                <span className="font-semibold text-stone-800 flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#C9A27C]" />
-                  {apt.durationMinutes} Minutes
                 </span>
               </div>
               <div>
@@ -125,17 +118,17 @@ export const EmailReceiptModal: React.FC = () => {
           <div className="text-xs text-stone-500 space-y-2 bg-stone-50 p-4 rounded-xl">
             <div className="font-semibold text-stone-800 flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-[#B76E79]" />
-              <span>Location & Arrival Notes</span>
+              <span>Salon Location</span>
             </div>
             <p>
-              742 Ocean Promenade, Suite 400, Beverly Hills, CA 90210. Complimentary valet parking is available at the promenade entrance. Please arrive 10 minutes prior to enjoy your welcoming botanical tea or organic espresso.
+              10th Commercial Ln, Zamzama Commercial Area, Defence V, Karachi 75500, Pakistan.
             </p>
           </div>
 
           {/* Footer controls */}
           <div className="pt-2 flex items-center justify-between">
             <span className="text-[11px] text-stone-400">
-              Need to reschedule? Call us at (310) 555-9283
+              Need to confirm your appointment? Call +92 319 9283227.
             </span>
             <button
               onClick={() => setActiveReceiptAppointment(null)}

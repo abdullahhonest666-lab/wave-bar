@@ -3,7 +3,7 @@ import { useSalon } from '../context/SalonContext';
 import { Sparkles, Award, Heart, Shield, Check, Calendar } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
-  const { stylists, openBookingWithService } = useSalon();
+  const { stylists, openBookingWithService, averageRating, totalReviewsCount } = useSalon();
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 space-y-24">
@@ -15,39 +15,39 @@ export const AboutPage: React.FC = () => {
             The Wave Bar Story
           </span>
           <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#2C2C2C] leading-tight">
-            Elevating Hair Artistry into a Serene Ritual
+            Hair, Beauty & Self-Care in Karachi
           </h1>
           <p className="text-sm text-[#6B6B6B] leading-relaxed">
-            Wave Bar was conceived as an antidote to frantic, assembly-line salons. Founded by celebrity wave architect Elena Rostova, our Beverly Hills sanctuary was purposefully designed around slow luxury, intentional hair health, and fluid, natural movement.
+            Wave Bar Salon is a women-owned beauty salon in Zamzama Commercial Area, Defence V, Karachi. Its menu includes hair services, treatments, cuts and colour, massage, threading, nail care and beauty services.
           </p>
           <p className="text-sm text-[#6B6B6B] leading-relaxed">
-            We reject heavy lacquers and harsh bleaching. Instead, our team pioneers micro-foil balayage, custom copper and rose-gold glazes, and botanical lipid therapies that allow hair to reflect light with liquid brilliance.
+            Explore the services and prices listed by Wave Bar, or contact the salon directly to confirm availability and current menu details.
           </p>
           <div className="pt-2 flex items-center gap-6">
             <div className="space-y-1">
               <span className="text-3xl font-serif font-bold text-rose-gold-gradient block">
-                14+
+                {averageRating.toFixed(1)} ★
               </span>
               <span className="text-[11px] uppercase tracking-wider text-[#6B6B6B]">
-                Years of Artistry
+                Google Maps Rating
               </span>
             </div>
             <div className="h-10 w-[1px] bg-[#E8D5B7]" />
             <div className="space-y-1">
               <span className="text-3xl font-serif font-bold text-rose-gold-gradient block">
-                5.0 ★
+                {totalReviewsCount}
               </span>
               <span className="text-[11px] uppercase tracking-wider text-[#6B6B6B]">
-                Flawless Rating
+                Google Maps Reviews
               </span>
             </div>
             <div className="h-10 w-[1px] bg-[#E8D5B7]" />
             <div className="space-y-1">
               <span className="text-3xl font-serif font-bold text-rose-gold-gradient block">
-                100%
+                Karachi
               </span>
               <span className="text-[11px] uppercase tracking-wider text-[#6B6B6B]">
-                Clean Formulations
+                Pakistan
               </span>
             </div>
           </div>
@@ -56,14 +56,14 @@ export const AboutPage: React.FC = () => {
         <div className="lg:col-span-6 relative">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E8D5B7] aspect-[4/3]">
             <img
-              src="/images/hero_salon_luxury_interior_1793149644642.jpg"
-              alt="Wave Bar Sanctuary Interior"
+              src="/images/wavebar-storefront.jpg"
+              alt="Wave Bar salon storefront in Karachi"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white text-xs">
-              <div className="font-serif font-semibold text-base">The Beverly Hills Sanctuary</div>
-              <p className="text-stone-300 text-[11px] mt-0.5">Designed with arched rose-gold trimmed mirrors and sound-dampening acoustic wall curves.</p>
+              <div className="font-serif font-semibold text-base">Wave Bar Salon</div>
+              <p className="text-stone-300 text-[11px] mt-0.5">Zamzama Commercial Area, Karachi</p>
             </div>
           </div>
         </div>
@@ -73,32 +73,27 @@ export const AboutPage: React.FC = () => {
       <section className="space-y-12">
         <div className="text-center max-w-xl mx-auto space-y-3">
           <span className="text-xs uppercase tracking-[0.25em] text-[#B76E79] font-semibold">
-            Our Artists
+            Wave Bar Team
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#2C2C2C]">
-            Master Stylists & Color Architects
+            Artists Mentioned by Guests
           </h2>
           <p className="text-xs text-[#6B6B6B]">
-            Each stylist brings specialized global training, profound technical discipline, and an instinctive eye for dimensional harmony.
+            These Wave Bar team members are named in public Google Maps reviews.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stylists.map((stylist) => (
             <div
               key={stylist.id}
               className="p-6 rounded-3xl bg-white border border-[#E8D5B7]/60 luxury-card-shadow flex flex-col justify-between"
             >
               <div className="space-y-4">
-                <div className="relative rounded-2xl overflow-hidden aspect-square border border-[#E8D5B7]/60">
-                  <img
-                    src={stylist.avatar}
-                    alt={stylist.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-semibold text-[#2C2C2C] shadow-xs">
-                    ★ {stylist.rating} ({stylist.reviewsCount})
-                  </div>
+                <div className="relative rounded-2xl overflow-hidden aspect-square border border-[#E8D5B7]/60 bg-[#F9F6F2] flex items-center justify-center">
+                  <span className="text-6xl font-serif text-[#B76E79]">
+                    {stylist.name.slice(0, 1)}
+                  </span>
                 </div>
 
                 <div>
@@ -149,39 +144,39 @@ export const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <span className="text-xs uppercase tracking-[0.25em] text-[#C9A27C] font-semibold">
-              The Sanctuary Design
+              Inside Wave Bar
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-light leading-snug">
-              Every Detail Curated for Your Complete Restoration
+              A Karachi Salon for Hair & Beauty
             </h2>
             <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
-              From our custom rose-gold stations to the acoustic soundscapes tuned to 432Hz, every sensory element at Wave Bar encourages you to exhale and surrender to luxury care.
+              Wave Bar’s service menus cover hair styling, colour, treatments, haircuts, massage, threading, eyeliner and nail care.
             </p>
 
             <div className="space-y-3 pt-2 text-xs text-stone-200">
               <div className="flex items-start gap-3">
                 <Check className="w-4 h-4 text-[#C9A27C] shrink-0 mt-0.5" />
-                <span>Private reclining wash beds with integrated air-compression massage</span>
+                <span>Hair styling, treatments and colour services</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-4 h-4 text-[#C9A27C]" />
-                <span>HEPA air filtration continuously cleansing ambient salon atmosphere</span>
+                <span>Haircuts, massage and threading</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-4 h-4 text-[#C9A27C]" />
-                <span>Reverse-osmosis filtered water for mineral-free hair rinsing</span>
+                <span>Eyeliner and nail services</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-4 h-4 text-[#C9A27C]" />
-                <span>Complimentary organic tea ceremonies and vintage champagne</span>
+                <span>Wave Tab gift cards</span>
               </div>
             </div>
           </div>
 
           <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-white/10 shadow-2xl">
             <img
-              src="/images/salon_interior_wash_lounge_1793149646187.jpg"
-              alt="Wave Bar Private Wash Lounge"
+              src="/images/wavebar-salon-seating.jpg"
+              alt="Wave Bar salon interior"
               className="w-full h-full object-cover"
             />
           </div>

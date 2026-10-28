@@ -4,19 +4,16 @@ import {
   Calendar,
   Sparkles,
   Star,
-  Clock,
   ArrowRight,
   ShieldCheck,
-  Heart,
-  Instagram,
   Check,
-  Scissors,
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   const {
     services,
     reviews,
+    gallery,
     openBookingWithService,
     setActivePage,
     averageRating,
@@ -26,33 +23,6 @@ export const HomePage: React.FC = () => {
   const featuredServices = services.slice(0, 4);
   const featuredReviews = reviews.slice(0, 3);
 
-  const instagramPosts = [
-    {
-      id: 1,
-      image: '/images/salon_hair_balayage_copper_1793149644947.jpg',
-      caption: 'Autumn rose-gold melting into soft copper waves. By @marcus.wavebar ✨',
-      likes: '482',
-    },
-    {
-      id: 2,
-      image: '/images/salon_hair_styling_waves_1793149644985.jpg',
-      caption: 'The unmistakable Wave Bar signature bounce. Clean, weightless, radiant.',
-      likes: '629',
-    },
-    {
-      id: 3,
-      image: '/images/hero_salon_luxury_interior_1793149644642.jpg',
-      caption: 'Our illuminated arched stations waiting for morning appointments ☕🕊️',
-      likes: '840',
-    },
-    {
-      id: 4,
-      image: '/images/salon_interior_wash_lounge_1793149646187.jpg',
-      caption: 'The Wash Sanctuary. Where scalp renewal meets restorative steam mist.',
-      likes: '517',
-    },
-  ];
-
   return (
     <div className="space-y-24 sm:space-y-32 pb-20">
       
@@ -61,8 +31,8 @@ export const HomePage: React.FC = () => {
         {/* Background Image with Measured Scrim */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero_salon_luxury_interior_1793149644642.jpg"
-            alt="Wave Bar Luxury Salon Interior"
+            src="/images/wavebar-salon-interior.jpg"
+            alt="Wave Bar salon interior in Karachi"
             className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
             referrerPolicy="no-referrer"
           />
@@ -97,22 +67,22 @@ export const HomePage: React.FC = () => {
           
           {/* Editorial Kicker */}
           <div className="inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-[#E8D5B7] font-medium">
-            <span>Haute Hair Artistry</span>
+            <span>Wave Bar Salon</span>
             <span>·</span>
-            <span>Beverly Hills Sanctuary</span>
+            <span>Karachi, Pakistan</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light tracking-tight text-white text-balance leading-[1.15]">
-            Where Fluid Wave Alchemy Meets{' '}
+            Hair, Beauty & Self-Care{' '}
             <span className="italic font-normal text-rose-gold-gradient">
-              Bespoke Hair Luxury
+              at Wave Bar
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-stone-300 max-w-2xl mx-auto font-light leading-relaxed text-balance">
-            Specializing in sculpted dimensional balayage, custom copper hues, restorative scalp therapies, and our signature mirror-finish waves.
+            Explore Wave Bar’s hair styling, colour, treatments, threading, nail care and beauty services in Zamzama, Karachi.
           </p>
 
           {/* CTAs */}
@@ -144,18 +114,18 @@ export const HomePage: React.FC = () => {
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
                 ))}
               </div>
-              <span className="font-semibold text-white">5.0 ★</span>
-              <span className="text-stone-400">({totalReviewsCount} Verified Reviews)</span>
+              <span className="font-semibold text-white">{averageRating.toFixed(1)} ★</span>
+              <span className="text-stone-400">({totalReviewsCount} Reviews)</span>
             </div>
             <div className="hidden sm:block text-stone-500">·</div>
             <div className="flex items-center gap-1.5 text-stone-300">
               <ShieldCheck className="w-4 h-4 text-[#C9A27C]" />
-              <span>Certified Master Colorists</span>
+              <span>Google Maps listed salon</span>
             </div>
             <div className="hidden sm:block text-stone-500">·</div>
             <div className="flex items-center gap-1.5 text-stone-300">
               <Sparkles className="w-4 h-4 text-[#C9A27C]" />
-              <span>Formaldehyde-Free Treatments</span>
+              <span>Hair, beauty & wellness menu</span>
             </div>
           </div>
         </div>
@@ -165,13 +135,13 @@ export const HomePage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <span className="text-xs uppercase tracking-[0.25em] text-[#B76E79] font-semibold">
-            Salon Philosophy
+            Wave Bar Services
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#2C2C2C]">
-            Crafted for Texture, Radiance & Hair Health
+            Hair, Colour & Beauty
           </h2>
           <p className="text-sm text-[#6B6B6B] leading-relaxed">
-            Every appointment is an individualized masterclass in proportion, tone, and organic strand nourishment.
+            Explore the salon’s listed services and menu pricing, all in Pakistani rupees.
           </p>
         </div>
 
@@ -179,23 +149,23 @@ export const HomePage: React.FC = () => {
           {[
             {
               num: '01',
-              title: 'The Signature Brush Wave',
-              desc: 'Our proprietary brush-sculpting technique generates natural bounce and fluid movement that lasts days without stiffness.',
+              title: 'Hair Services',
+              desc: 'Straight, curl or wavy styling, hair wash, blow-dry refresh and hairdos.',
             },
             {
               num: '02',
-              title: 'Rose-Gold & Copper Tone',
-              desc: 'Custom-blended micro-pigments that enrich warm brunettes and illuminate blondes with dimensional copper reflections.',
+              title: 'Haircuts & Colour',
+              desc: 'Haircuts, root touch-ups, gloss, full base colour, highlights and balayage.',
             },
             {
               num: '03',
-              title: 'Private Wash Sanctuary',
-              desc: 'Full-reclining massage chairs, warm herbal steam mist, and soothing acoustics for profound scalp rejuvenation.',
+              title: 'Treatments & Massage',
+              desc: 'Hair treatments, oiling and head massage, and dry massage options.',
             },
             {
               num: '04',
-              title: 'Molecular Bond Defense',
-              desc: 'Every coloring process is fortified with peptide bond builders to preserve 100% hair cuticle integrity.',
+              title: 'Beauty Services',
+              desc: 'Threading, eyeliner, nail colour and Wave Tab gift cards.',
             },
           ].map((pillar) => (
             <div
@@ -223,10 +193,10 @@ export const HomePage: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <span className="text-xs uppercase tracking-[0.25em] text-[#B76E79] font-semibold">
-              Curated Menu
+              Wave Bar Menu
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#2C2C2C] mt-2">
-              Signature Rituals
+              Salon Services
             </h2>
           </div>
           <button
@@ -272,7 +242,7 @@ export const HomePage: React.FC = () => {
                 <div>
                   <span className="text-[10px] text-[#6B6B6B] block">Starting At</span>
                   <span className="text-lg font-bold text-[#2C2C2C] font-mono tabular-nums">
-                    ${service.price}
+                    Rs. {service.price.toLocaleString('en-PK')}
                   </span>
                 </div>
                 <button
@@ -287,48 +257,48 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. EDITORIAL SPOTLIGHT: BALAYAGE & SANCTUARY (Two Column Split) */}
+      {/* 4. HAIR COLOUR MENU SPOTLIGHT */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#2C2C2C] rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-16 text-white">
           <div className="lg:col-span-7 space-y-6">
             <span className="text-xs uppercase tracking-[0.25em] text-[#C9A27C] font-semibold">
-              Signature Technique
+              Hair Colour Menu
             </span>
             <h2 className="text-3xl sm:text-5xl font-serif font-light leading-tight">
-              The Copper & Rose Gold <br />
+              Hair Colour <br />
               <span className="font-normal italic text-rose-gold-gradient">
-                Dimensional Glaze
+                & Balayage
               </span>
             </h2>
             <p className="text-stone-300 text-sm leading-relaxed max-w-xl">
-              Engineered exclusively at Wave Bar, this bespoke painting technique infuses warm honey, apricot, and soft rose-gold gloss into naturally flowing waves. The result is unparalleled depth under natural sunlight with low-maintenance regrowth.
+              Wave Bar’s posted menu includes root touch-ups, gloss, full base colour, highlights and balayage. Colour prices are starting prices; confirm the final cost with the salon.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-stone-700 text-xs text-stone-300">
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-[#C9A27C]" />
-                <span>Zero harsh demarcation lines</span>
+                <span>Root touch-up (Majirel): Rs. 4,500</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-[#C9A27C]" />
-                <span>Infused with botanical lipids</span>
+                <span>Gloss (full head): Rs. 6,500</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-[#C9A27C]" />
-                <span>Personalized home gloss kit</span>
+                <span>Highlights (half head): from Rs. 15,000</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-[#C9A27C]" />
-                <span>Complimentary consultation</span>
+                <span>Balayage: from Rs. 15,000</span>
               </div>
             </div>
 
             <div className="pt-4">
               <button
-                onClick={() => openBookingWithService('srv-3')}
+                onClick={() => openBookingWithService('srv-28')}
                 className="px-8 py-3.5 rounded-full bg-rose-gold-gradient hover:bg-rose-gold-gradient-hover text-white text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer shadow-lg"
               >
-                Reserve Balayage Experience
+                Book Balayage
               </button>
             </div>
           </div>
@@ -336,13 +306,13 @@ export const HomePage: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/5]">
               <img
-                src="/images/salon_hair_balayage_copper_1793149644947.jpg"
-                alt="Wave Bar Copper Balayage Finish"
+                src="/images/wavebar-hair-finish.jpg"
+                alt="Wave Bar client hair styling"
                 className="w-full h-full object-cover object-center"
               />
               <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-4 rounded-xl text-xs border border-white/15">
-                <div className="font-semibold text-white">Client Transformation</div>
-                <div className="text-stone-400 text-[11px]">Bespoke Copper Glaze by Master Colorist Marcus Vance</div>
+                <div className="font-semibold text-white">Wave Bar Client Photo</div>
+                <div className="text-stone-400 text-[11px]">Hair styling at Wave Bar</div>
               </div>
             </div>
           </div>
@@ -357,10 +327,10 @@ export const HomePage: React.FC = () => {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-amber-400" />
               ))}
-              <span className="font-bold text-[#2C2C2C] text-sm">5.0 / 5.0</span>
+              <span className="font-bold text-[#2C2C2C] text-sm">{averageRating.toFixed(1)} / 5</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#2C2C2C]">
-              Echoes of Satisfaction
+              Google Maps Reviews
             </h2>
           </div>
           <button
@@ -370,7 +340,7 @@ export const HomePage: React.FC = () => {
             }}
             className="text-xs font-semibold uppercase tracking-wider text-[#B76E79] hover:text-[#2C2C2C] transition-colors flex items-center gap-1.5 self-start md:self-auto cursor-pointer"
           >
-            <span>Read All Verified Reviews</span>
+            <span>Read All Reviews</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -402,62 +372,50 @@ export const HomePage: React.FC = () => {
                 <div className="text-[11px] text-[#B76E79]">
                   {rev.serviceName} · {rev.stylistName}
                 </div>
+                <div className="text-[10px] text-[#6B6B6B]">
+                  {rev.source ?? 'Website'}
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 6. INSTAGRAM FEED PREVIEW */}
+      {/* 6. Wave Bar gallery preview */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="text-center max-w-xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#B76E79] font-semibold">
-            <Instagram className="w-3.5 h-3.5" />
-            <span>@wavebar__ on Instagram</span>
-          </div>
+          <span className="text-xs uppercase tracking-widest text-[#B76E79] font-semibold">
+            Wave Bar Gallery
+          </span>
           <h2 className="text-3xl font-serif font-bold text-[#2C2C2C]">
-            Follow the Sanctuary
+            The Salon & Its Work
           </h2>
           <p className="text-xs text-[#6B6B6B]">
-            Daily salon formulas, before-and-after transformations, and behind-the-scenes wave techniques.
+            Photos of the salon and client styling from Wave Bar.
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {instagramPosts.map((post) => (
-            <a
-              key={post.id}
-              href="https://www.instagram.com/wavebar__"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="group relative rounded-2xl overflow-hidden aspect-square border border-[#E8D5B7]/50 shadow-xs block"
+          {gallery.slice(0, 4).map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => {
+                setActivePage('gallery');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="group relative rounded-2xl overflow-hidden aspect-square border border-[#E8D5B7]/50 shadow-xs block text-left"
             >
               <img
-                src={post.image}
-                alt={post.caption}
+                src={item.image}
+                alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end text-white text-xs">
-                <p className="line-clamp-2 text-[11px] mb-2">{post.caption}</p>
-                <div className="flex items-center gap-1.5 text-[10px] text-[#E8D5B7]">
-                  <Heart className="w-3 h-3 fill-current" />
-                  <span>{post.likes}</span>
-                </div>
+                <p className="line-clamp-2 text-[11px]">{item.title}</p>
               </div>
-            </a>
+            </button>
           ))}
-        </div>
-
-        <div className="text-center mt-8">
-          <a
-            href="https://www.instagram.com/wavebar__"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#B76E79] text-[#B76E79] hover:bg-[#B76E79] hover:text-white transition-colors text-xs font-semibold tracking-wider uppercase"
-          >
-            <Instagram className="w-4 h-4" />
-            <span>Follow @wavebar__</span>
-          </a>
         </div>
       </section>
 
@@ -465,13 +423,13 @@ export const HomePage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="rounded-3xl bg-gradient-to-r from-[#B76E79] via-[#C9A27C] to-[#D4AF87] p-8 sm:p-14 text-white text-center space-y-6 shadow-xl">
           <span className="text-xs uppercase tracking-[0.25em] text-white/90 font-semibold block">
-            Begin Your Transformation
+            Visit Wave Bar
           </span>
           <h2 className="text-3xl sm:text-5xl font-serif font-light max-w-2xl mx-auto text-balance leading-tight">
-            Reserve Your Wave Bar Salon Experience
+            Find Wave Bar in Karachi
           </h2>
           <p className="text-white/90 text-sm max-w-lg mx-auto font-light leading-relaxed">
-            Appointments for signature balayage and cuts fill quickly. Reserve your preferred artist online today.
+            Browse the service menu, call the salon or check the Google Maps listing for directions and current hours.
           </p>
           <div className="pt-2">
             <button

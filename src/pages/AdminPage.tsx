@@ -43,8 +43,8 @@ export const AdminPage: React.FC = () => {
 
   // Service form state
   const [newServiceName, setNewServiceName] = useState('');
-  const [newServiceCategory, setNewServiceCategory] = useState('Cuts & Styling');
-  const [newServicePrice, setNewServicePrice] = useState('120');
+  const [newServiceCategory, setNewServiceCategory] = useState('Hair Services');
+  const [newServicePrice, setNewServicePrice] = useState('1500');
   const [newServiceDuration, setNewServiceDuration] = useState('60');
   const [newServiceDescription, setNewServiceDescription] = useState('');
   const [newServiceBadge, setNewServiceBadge] = useState('');
@@ -52,8 +52,8 @@ export const AdminPage: React.FC = () => {
   // Gallery form state
   const [newGalleryTitle, setNewGalleryTitle] = useState('');
   const [newGalleryCategory, setNewGalleryCategory] = useState('Signature Waves');
-  const [newGalleryImage, setNewGalleryImage] = useState('/images/salon_hair_styling_waves_1793149644985.jpg');
-  const [newGalleryStylist, setNewGalleryStylist] = useState('Elena Rostova');
+  const [newGalleryImage, setNewGalleryImage] = useState('/images/wavebar-beach-waves.jpg');
+  const [newGalleryStylist, setNewGalleryStylist] = useState('Wave Bar Team');
   const [newGalleryDesc, setNewGalleryDesc] = useState('');
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -200,7 +200,7 @@ export const AdminPage: React.FC = () => {
               Wave Bar Salon Management
             </h1>
             <p className="text-xs text-[#6B6B6B]">
-              Logged in as Elena Rostova (Director) · Live Backend Connected
+              Salon management · Live Backend Connected
             </p>
           </div>
         </div>
@@ -235,7 +235,7 @@ export const AdminPage: React.FC = () => {
             <DollarSign className="w-4 h-4 text-emerald-600" />
           </div>
           <div className="text-2xl font-serif font-bold text-[#2C2C2C] font-mono tabular-nums">
-            ${totalRevenue.toLocaleString()}
+            Rs. {totalRevenue.toLocaleString('en-PK')}
           </div>
           <div className="text-[11px] text-[#6B6B6B]">From confirmed reservations</div>
         </div>
@@ -344,7 +344,7 @@ export const AdminPage: React.FC = () => {
                         <td className="px-6 py-4">
                           <div className="font-medium text-stone-900">{apt.serviceName}</div>
                           <div className="text-stone-500 text-[11px] font-mono tabular-nums">
-                            ${apt.price} · {apt.durationMinutes}m
+                            Rs. {apt.price.toLocaleString('en-PK')} · {apt.durationMinutes}m
                           </div>
                         </td>
                         <td className="px-6 py-4 font-medium text-[#B76E79]">
@@ -433,15 +433,20 @@ export const AdminPage: React.FC = () => {
                     onChange={(e) => setNewServiceCategory(e.target.value)}
                     className="w-full px-3 py-2 rounded-xl border border-[#E8D5B7] bg-[#FDFBF7]"
                   >
-                    <option value="Cuts & Styling">Cuts & Styling</option>
-                    <option value="Color & Balayage">Color & Balayage</option>
-                    <option value="Treatments & Hair Spa">Treatments & Hair Spa</option>
-                    <option value="Bridal & Glam">Bridal & Glam</option>
+                    <option value="Hair Services">Hair Services</option>
+                    <option value="Hair Treatments">Hair Treatments</option>
+                    <option value="Haircuts">Haircuts</option>
+                    <option value="Hair Colour">Hair Colour</option>
+                    <option value="Dry Massage">Dry Massage</option>
+                    <option value="Threading">Threading</option>
+                    <option value="Beauty Services">Beauty Services</option>
+                    <option value="Nail Services">Nail Services</option>
+                    <option value="Gift Cards">Gift Cards</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="font-semibold block mb-1">Price ($) *</label>
+                  <label className="font-semibold block mb-1">Price (Rs.) *</label>
                   <input
                     type="number"
                     required
@@ -509,7 +514,7 @@ export const AdminPage: React.FC = () => {
                   <div className="space-y-1">
                     <div className="font-semibold text-stone-900 text-sm">{s.name}</div>
                     <div className="text-stone-500">
-                      {s.category} · {s.durationMinutes}m · ${s.price}
+                      {s.category} · {s.durationMinutes}m · Rs. {s.price.toLocaleString('en-PK')}
                     </div>
                   </div>
                   <button
