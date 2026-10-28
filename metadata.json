@@ -1,0 +1,6 @@
+{
+  "name": "Wave Bar - High-End Hair & Beauty Salon",
+  "description": "Luxurious, modern salon experience featuring bespoke cuts, balayage, hair spa treatments, and seamless online appointment booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

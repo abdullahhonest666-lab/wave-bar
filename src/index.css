@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-rose-gold: #B76E79;
+    --color-copper: #C9A27C;
+    --color-charcoal: #2C2C2C;
+    --color-cream: #FDFBF7;
+    --color-champagne: #E8D5B7;
+    --color-soft-gray: #6B6B6B;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #FDFBF7;
+    color: #2C2C2C;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-display {
+    font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Metallic rose-gold gradient text & backgrounds */
+.text-rose-gold-gradient {
+  background: linear-gradient(135deg, #B76E79 0%, #C9A27C 50%, #D4AF87 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-rose-gold-gradient {
+  background: linear-gradient(135deg, #B76E79 0%, #C9A27C 100%);
+}
+
+.bg-rose-gold-gradient-hover {
+  background: linear-gradient(135deg, #A85E69 0%, #B8926C 100%);
+}
+
+.border-rose-gold-gradient {
+  border-image: linear-gradient(to right, #B76E79, #C9A27C) 1;
+}
+
+/* Subtle luxury card & glow */
+.luxury-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(232, 213, 183, 0.35);
+}
+
+.luxury-card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(183, 110, 121, 0.08), 0 4px 12px -2px rgba(44, 44, 44, 0.03);
+}
+
+.luxury-card-shadow-hover:hover {
+  box-shadow: 0 20px 40px -12px rgba(183, 110, 121, 0.16), 0 8px 16px -4px rgba(44, 44, 44, 0.06);
+}
+
+/* Wave animation utilities */
+@keyframes waveFlow {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-25%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-wave-flow {
+  animation: waveFlow 18s ease-in-out infinite;
+}
