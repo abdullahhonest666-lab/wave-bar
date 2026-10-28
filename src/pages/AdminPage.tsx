@@ -52,7 +52,7 @@ export const AdminPage: React.FC = () => {
   // Gallery form state
   const [newGalleryTitle, setNewGalleryTitle] = useState('');
   const [newGalleryCategory, setNewGalleryCategory] = useState('Signature Waves');
-  const [newGalleryImage, setNewGalleryImage] = useState('/src/assets/images/salon_hair_styling_waves_1793149644985.jpg');
+  const [newGalleryImage, setNewGalleryImage] = useState('/images/salon_hair_styling_waves_1793149644985.jpg');
   const [newGalleryStylist, setNewGalleryStylist] = useState('Elena Rostova');
   const [newGalleryDesc, setNewGalleryDesc] = useState('');
 

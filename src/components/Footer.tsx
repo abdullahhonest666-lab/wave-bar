@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
             <div>
               <div className="inline-block bg-[#FDFBF7] px-4 py-2 rounded-2xl border border-[#E8D5B7]/60 shadow-md">
                 <img
-                  src="/assets/aistudio/Wave_Bar_284bd31f.png"
+                  src="/images/Wave_Bar_284bd31f.png"
                   alt="Wave Bar High-End Hair & Beauty Salon"
                   className="h-16 w-auto object-contain"
                 />

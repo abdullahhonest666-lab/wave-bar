@@ -29,25 +29,25 @@ export const HomePage: React.FC = () => {
   const instagramPosts = [
     {
       id: 1,
-      image: '/src/assets/images/salon_hair_balayage_copper_1793149644947.jpg',
+      image: '/images/salon_hair_balayage_copper_1793149644947.jpg',
       caption: 'Autumn rose-gold melting into soft copper waves. By @marcus.wavebar ✨',
       likes: '482',
     },
     {
       id: 2,
-      image: '/src/assets/images/salon_hair_styling_waves_1793149644985.jpg',
+      image: '/images/salon_hair_styling_waves_1793149644985.jpg',
       caption: 'The unmistakable Wave Bar signature bounce. Clean, weightless, radiant.',
       likes: '629',
     },
     {
       id: 3,
-      image: '/src/assets/images/hero_salon_luxury_interior_1793149644642.jpg',
+      image: '/images/hero_salon_luxury_interior_1793149644642.jpg',
       caption: 'Our illuminated arched stations waiting for morning appointments ☕🕊️',
       likes: '840',
     },
     {
       id: 4,
-      image: '/src/assets/images/salon_interior_wash_lounge_1793149646187.jpg',
+      image: '/images/salon_interior_wash_lounge_1793149646187.jpg',
       caption: 'The Wash Sanctuary. Where scalp renewal meets restorative steam mist.',
       likes: '517',
     },
@@ -61,7 +61,7 @@ export const HomePage: React.FC = () => {
         {/* Background Image with Measured Scrim */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/src/assets/images/hero_salon_luxury_interior_1793149644642.jpg"
+            src="/images/hero_salon_luxury_interior_1793149644642.jpg"
             alt="Wave Bar Luxury Salon Interior"
             className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
             referrerPolicy="no-referrer"
@@ -336,7 +336,7 @@ export const HomePage: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/5]">
               <img
-                src="/src/assets/images/salon_hair_balayage_copper_1793149644947.jpg"
+                src="/images/salon_hair_balayage_copper_1793149644947.jpg"
                 alt="Wave Bar Copper Balayage Finish"
                 className="w-full h-full object-cover object-center"
               />

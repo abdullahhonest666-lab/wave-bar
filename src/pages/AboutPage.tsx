@@ -56,7 +56,7 @@ export const AboutPage: React.FC = () => {
         <div className="lg:col-span-6 relative">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E8D5B7] aspect-[4/3]">
             <img
-              src="/src/assets/images/hero_salon_luxury_interior_1793149644642.jpg"
+              src="/images/hero_salon_luxury_interior_1793149644642.jpg"
               alt="Wave Bar Sanctuary Interior"
               className="w-full h-full object-cover"
             />
@@ -180,7 +180,7 @@ export const AboutPage: React.FC = () => {
 
           <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-white/10 shadow-2xl">
             <img
-              src="/src/assets/images/salon_interior_wash_lounge_1793149646187.jpg"
+              src="/images/salon_interior_wash_lounge_1793149646187.jpg"
               alt="Wave Bar Private Wash Lounge"
               className="w-full h-full object-cover"
             />

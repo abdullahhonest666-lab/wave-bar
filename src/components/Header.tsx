@@ -66,7 +66,7 @@ export const Header: React.FC = () => {
             aria-label="Wave Bar Home"
           >
             <img
-              src="/assets/aistudio/Wave_Bar_284bd31f.png"
+              src="/images/Wave_Bar_284bd31f.png"
               alt="Wave Bar High-End Hair & Beauty Salon"
               className="h-16 sm:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
             />

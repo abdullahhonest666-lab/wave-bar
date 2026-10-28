@@ -46,7 +46,7 @@ export const EmailReceiptModal: React.FC = () => {
           {/* Email Header */}
           <div className="text-center space-y-3 pb-6 border-b border-stone-100">
             <img
-              src="/assets/aistudio/Wave_Bar_284bd31f.png"
+              src="/images/Wave_Bar_284bd31f.png"
               alt="Wave Bar"
               className="h-10 mx-auto object-contain"
             />
