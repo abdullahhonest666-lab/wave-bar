@@ -128,7 +128,7 @@ export const ServicesPage: React.FC = () => {
             Select a menu to open the original image at full size.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3">
           {[
             { title: 'Hair Services & Treatments', image: '/images/wavebar-hair-services-menu.jpg' },
             { title: 'Haircut & Colour Menu', image: '/images/wavebar-hair-colour-menu.jpg' },
@@ -139,10 +139,18 @@ export const ServicesPage: React.FC = () => {
               href={menu.image}
               target="_blank"
               rel="noreferrer noopener"
-              className="p-5 rounded-3xl bg-white border border-[#E8D5B7]/60 luxury-card-shadow block"
+              className="luxury-card-shadow flex h-full flex-col rounded-3xl border border-[#E8D5B7]/60 bg-white p-5 transition-shadow duration-300 hover:shadow-xl"
             >
-              <img src={menu.image} alt={menu.title} className="w-full h-auto rounded-xl" />
-              <h3 className="mt-4 text-sm font-semibold text-[#2C2C2C]">{menu.title}</h3>
+              <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-xl bg-[#FDFBF7] sm:h-[480px] lg:h-[520px]">
+                <img
+                  src={menu.image}
+                  alt={menu.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="photo-crisp h-full w-full object-contain"
+                />
+              </div>
+              <h3 className="mt-4 min-h-10 text-sm font-semibold text-[#2C2C2C]">{menu.title}</h3>
             </a>
           ))}
         </div>
