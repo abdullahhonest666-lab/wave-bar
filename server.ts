@@ -719,6 +719,6 @@ const isMainModule =
   process.argv[1] !== undefined &&
   pathToFileURL(path.resolve(process.argv[1])).href === import.meta.url;
 
-if (isMainModule) {
+if (isMainModule && process.env.VERCEL !== '1') {
   void startServer();
 }
