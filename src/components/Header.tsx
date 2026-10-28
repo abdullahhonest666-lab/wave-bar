@@ -21,6 +21,11 @@ export const Header: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleBookAppointment = () => {
+    setMobileMenuOpen(false);
+    openBookingWithService();
+  };
+
   return (
     <>
       {/* Top luxury announcement bar */}
@@ -68,7 +73,7 @@ export const Header: React.FC = () => {
             <img
               src="/images/Wave_Bar_284bd31f.png"
               alt="Wave Bar High-End Hair & Beauty Salon"
-              className="h-16 sm:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+              className="h-12 max-w-[125px] sm:h-14 sm:max-w-none w-auto object-contain transition-transform duration-300 group-hover:scale-102"
             />
           </button>
 
@@ -96,20 +101,25 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Zone 3: 1 Primary Action */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <button
-              onClick={() => openBookingWithService()}
-              className="relative group overflow-hidden px-5 sm:px-6 py-2.5 rounded-full text-white text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[#B76E79]/20 bg-rose-gold-gradient hover:bg-rose-gold-gradient-hover active:scale-98 whitespace-nowrap shrink-0 cursor-pointer flex items-center gap-2"
+              onClick={handleBookAppointment}
+              aria-label="Book Appointment"
+              className="relative group overflow-hidden px-3 sm:px-6 py-2 sm:py-2.5 rounded-full text-white text-[10px] sm:text-sm font-semibold tracking-wide sm:tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[#B76E79]/20 bg-rose-gold-gradient hover:bg-rose-gold-gradient-hover active:scale-98 whitespace-nowrap shrink-0 cursor-pointer flex items-center gap-1.5 sm:gap-2"
             >
-              <Calendar className="w-3.5 h-3.5" />
-              <span>Book Appointment</span>
+              <Calendar className="w-3.5 h-3.5 shrink-0" />
+              <span className="sm:hidden">Book</span>
+              <span className="hidden sm:inline">Book Appointment</span>
             </button>
 
             {/* Mobile menu toggle */}
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-[#2C2C2C] hover:bg-[#E8D5B7]/30 transition-colors"
+              className="lg:hidden flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-[#2C2C2C] hover:bg-[#E8D5B7]/30 transition-colors"
               aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -118,7 +128,7 @@ export const Header: React.FC = () => {
 
         {/* Mobile slide-down menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#FDFBF7] border-b border-[#E8D5B7] px-6 py-5 shadow-xl transition-all">
+          <div id="mobile-navigation" className="lg:hidden bg-[#FDFBF7] border-b border-[#E8D5B7] px-6 py-5 shadow-xl transition-all">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <button
