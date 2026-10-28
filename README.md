@@ -93,6 +93,17 @@ Wave Bar is a luxury digital platform for a high-end Beverly Hills hair and beau
    npm start
    ```
 
+### Deploying to Vercel
+
+Vercel serves the Vite build as the frontend and routes `/api/*` requests through
+the Express handler in `api/[...path].ts`. Deploy the project with the Vite
+framework preset and set `JWT_SECRET` to a strong, private value in the Vercel
+project's environment variables.
+
+The current API stores data in memory, so changes made through the admin portal
+are not durable across serverless instances or deployments. Use a persistent
+database before relying on it for real bookings or admin edits.
+
 ### Admin Access
 - Access via the **Admin** button in the top navigation or footer.
 - **Email**: `admin@wavebar.com`
