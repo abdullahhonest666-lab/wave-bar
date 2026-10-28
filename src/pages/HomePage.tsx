@@ -31,10 +31,12 @@ export const HomePage: React.FC = () => {
         {/* Background Image with Measured Scrim */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/wavebar-salon-interior.jpg"
+            src="/images/hero_salon_luxury_interior_1793149644642_enhanced.jpg"
             alt="Wave Bar salon interior in Karachi"
-            className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
+            className="photo-crisp w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
             referrerPolicy="no-referrer"
+            loading="eager"
+            decoding="async"
           />
           {/* Scrim Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#2C2C2C]/95 via-[#2C2C2C]/80 to-[#2C2C2C]/65" />
@@ -306,9 +308,11 @@ export const HomePage: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/5]">
               <img
-                src="/images/wavebar-hair-finish.jpg"
+                src="/images/salon_hair_balayage_copper_1793149644947_enhanced.jpg"
                 alt="Wave Bar client hair styling"
-                className="w-full h-full object-cover object-center"
+                className="photo-crisp w-full h-full object-cover object-center"
+                loading="eager"
+                decoding="async"
               />
               <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-4 rounded-xl text-xs border border-white/15">
                 <div className="font-semibold text-white">Wave Bar Client Photo</div>

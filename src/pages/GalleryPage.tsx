@@ -62,7 +62,9 @@ export const GalleryPage: React.FC = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="photo-crisp w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
             />
             {/* Scrim Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end text-white space-y-2">
@@ -106,7 +108,9 @@ export const GalleryPage: React.FC = () => {
               <img
                 src={activeLightboxItem.image}
                 alt={activeLightboxItem.title}
-                className="max-h-[70vh] w-full object-contain"
+                className="photo-crisp max-h-[70vh] w-full object-contain"
+                loading="eager"
+                decoding="async"
               />
             </div>
 

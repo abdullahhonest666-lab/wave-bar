@@ -29,6 +29,7 @@ Wave Bar Salon is a hair and beauty salon in Zamzama Commercial Area, Karachi. T
 
 4. **Lookbook & Gallery**:
    - Supplied salon and client photos organized by category.
+   - Supplied gallery photos are 4× AI-upscaled with [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN); the source photos are retained.
    - Interactive lightbox and appointment action.
 
 5. **Multi-Step Booking Wizard**:

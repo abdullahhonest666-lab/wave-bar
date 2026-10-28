@@ -56,9 +56,11 @@ export const AboutPage: React.FC = () => {
         <div className="lg:col-span-6 relative">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E8D5B7] aspect-[4/3]">
             <img
-              src="/images/wavebar-storefront.jpg"
+              src="/images/wavebar-storefront_enhanced.jpg"
               alt="Wave Bar salon storefront in Karachi"
-              className="w-full h-full object-cover"
+              className="photo-crisp w-full h-full object-cover"
+              loading="eager"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white text-xs">
@@ -175,9 +177,11 @@ export const AboutPage: React.FC = () => {
 
           <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-white/10 shadow-2xl">
             <img
-              src="/images/wavebar-salon-seating.jpg"
+              src="/images/salon_interior_wash_lounge_1793149646187_enhanced.jpg"
               alt="Wave Bar salon interior"
-              className="w-full h-full object-cover"
+              className="photo-crisp w-full h-full object-cover"
+              loading="eager"
+              decoding="async"
             />
           </div>
         </div>

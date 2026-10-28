@@ -18,6 +18,15 @@
     overflow-x: hidden;
   }
 
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
   h1, h2, h3, .font-serif {
     font-family: 'Playfair Display', Georgia, serif;
   }
@@ -25,6 +34,12 @@
   .font-display {
     font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
   }
+}
+
+.photo-crisp {
+  image-rendering: auto;
+  filter: saturate(1.06) contrast(1.04) brightness(1.02);
+  will-change: transform, filter;
 }
 
 /* Metallic rose-gold gradient text & backgrounds */
