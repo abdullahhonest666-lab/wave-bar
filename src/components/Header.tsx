@@ -46,10 +46,10 @@ export const Header: React.FC = () => {
               <span className="hidden md:inline">(310) 555-WAVE</span>
               <span className="md:hidden">Call</span>
             </a>
-            <span className="text-[#6B6B6B]">·</span>
+            <span className="hidden text-[#6B6B6B]">·</span>
             <button
               onClick={() => handleNav('admin')}
-              className={`flex items-center gap-1 text-[11px] transition-colors ${
+              className={`hidden items-center gap-1 text-[11px] transition-colors ${
                 activePage === 'admin' ? 'text-[#C9A27C]' : 'hover:text-[#C9A27C]'
               }`}
             >
@@ -146,7 +146,7 @@ export const Header: React.FC = () => {
               <div className="pt-3 border-t border-[#E8D5B7]/60 flex flex-col gap-3">
                 <button
                   onClick={() => handleNav('admin')}
-                  className="text-left text-sm text-[#6B6B6B] hover:text-[#2C2C2C] flex items-center gap-2"
+                  className="hidden text-left text-sm text-[#6B6B6B] hover:text-[#2C2C2C] items-center gap-2"
                 >
                   <Shield className="w-4 h-4 text-[#C9A27C]" />
                   <span>Admin Portal</span>

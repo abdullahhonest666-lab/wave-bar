@@ -158,10 +158,10 @@ export const Footer: React.FC = () => {
         <div className="pt-8 border-t border-[#3D3D3D] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
           <div className="flex items-center gap-3">
             <span>© {new Date().getFullYear()} Wave Bar Salon. All rights reserved.</span>
-            <span>·</span>
+            <span className="hidden">·</span>
             <button
               onClick={() => navigateTo('admin')}
-              className="hover:text-[#C9A27C] transition-colors"
+              className="hidden hover:text-[#C9A27C] transition-colors"
             >
               Staff Portal
             </button>
